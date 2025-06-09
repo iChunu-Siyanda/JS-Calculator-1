@@ -1,3 +1,4 @@
+//VARR: Variable, Action, Result, and Reset.
 let newLine = true;//Determines if the next typed button will be included in the new line.
 let value1;
 let currentOperator;
@@ -25,4 +26,18 @@ function operatorBtnPressed(operator) {
     currentOperator = operatorBtnPressed;
     value1 = parseInt(document.getElementById("inputBox").value);
     newLine = true;
+}
+
+//For the equals button(=).
+function equalBtnPressed(){
+    let value2 = parseTnt(document.getElementById("inputBox").value );
+    let totalFinal;
+    switch (key) {
+        case "+":
+            totalFinal = value1 + value2;
+            break;
+        case "-":
+            totalFinal = value1 - value2;
+
+    }
 }
