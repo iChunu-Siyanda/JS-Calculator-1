@@ -1,7 +1,7 @@
 //VARR: Variable, Action, Result, and Reset.
-let newLine = true;//Determines if the next typed button will be included in the new line.
-let value1;
-let currentOperator;
+var newLine = true;//Determines if the next typed button will be included in the new line.
+var value1;
+var currentOperator;
 
 //When any digit buttons are pressed.
 function digitBtnPressed(button){
@@ -10,7 +10,7 @@ function digitBtnPressed(button){
         newLine = false;
     }
     else{
-        let currentValue = document.getElementById("inputBox").value;
+        var currentValue = document.getElementById("inputBox").value;
         document.getElementById("inputBox").value = currentValue + button;
     }
 }
@@ -23,21 +23,29 @@ function btnACPressed() {
 
 //For the operator buttons(+,-,x).
 function operatorBtnPressed(operator) {
-    currentOperator = operatorBtnPressed;
+    currentOperator = operator;
     value1 = parseInt(document.getElementById("inputBox").value);
     newLine = true;
 }
 
 //For the equals button(=).
 function equalBtnPressed(){
-    let value2 = parseTnt(document.getElementById("inputBox").value );
-    let totalFinal;
-    switch (key) {
+    var value2 = parseInt(document.getElementById("inputBox").value );
+    var totalFinal;
+    switch (currentOperator) {
         case "+":
             totalFinal = value1 + value2;
             break;
         case "-":
             totalFinal = value1 - value2;
-
+            break;
+        case "/":
+            totalFinal = value1 / value2;
+            break;
+        case "x":
+            totalFinal = value1 * value2;
+            break;
     }
+    document.getElementById("inputBox").value = totalFinal;
+    newLine = true;
 }
